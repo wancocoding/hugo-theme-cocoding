@@ -1,0 +1,9 @@
+html {
+  font-size: $global-font-size;
+}
+
+.wrap {
+  @include clearfix;
+  min-height: 400px;
+  @apply bg-gray-500;
+}

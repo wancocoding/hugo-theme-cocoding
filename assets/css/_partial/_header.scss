@@ -1,0 +1,35 @@
+.header {
+  // @include clearfix;
+  @apply w-full bg-white bg-opacity-75;
+  @apply flex flex-row justify-center items-center;
+  @apply fixed top-0 left-0 right-0;
+  @apply border-b border-gray-200 border-solid;
+  z-index: 1314;
+
+  .header-container {
+    @apply flex flex-row h-12 justify-center items-center;
+
+    .logo-wrapper {
+      @apply flex flex-col justify-center;
+    }
+    .logo {
+      @apply flex text-gray-800 text-2xl font-bold;
+    }
+
+    .header-nav-list {
+      @apply flex-row flex;
+      .header-nav-item {
+
+        @apply flex flex-col ml-4 text-gray-700 hover:text-green-400;
+      }
+
+      .header-nav-link {
+        @apply block p-2;
+      }
+    }
+
+    .nav-search-bar {
+      @apply flex-grow;
+    }
+  }
+}

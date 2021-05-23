@@ -1,3 +1,24 @@
-<header class="w-full bg-red-300">
-  <h1 class="text-center">Header</h1>
+<!-- Header -->
+<header class="header">
+  <div class="container header-container">
+    <div class="logo-wrapper">
+      <a href="{{ "/" | relLangURL }}" class="logo">
+      {{- if .Site.Params.logoTitle -}}
+        {{ .Site.Params.logoTitle }}
+      {{- else -}}
+        {{ .Site.Title }}
+      {{- end -}}
+      </a>
+    </div>
+    <nav class="header-navbar">
+      <ul class="header-nav-list">
+        {{ range .Site.Menus.main -}}
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+    <div class="nav-search-bar"></div>
+  </div>
 </header>
