@@ -2,8 +2,16 @@ html {
   font-size: $global-font-size;
 }
 
-.wrap {
-  @include clearfix;
-  min-height: 400px;
-  @apply bg-gray-500;
+body {
+  @apply min-h-screen;
+  height: 100px;
+}
+
+.post-summary {
+  overflow: hidden;
+  word-break: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
