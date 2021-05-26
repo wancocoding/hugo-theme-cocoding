@@ -1,67 +1,41 @@
-// =============== global =============== //
+// ==================================================
+// Global
+// ==================================================
+
+// ------ Colors ------ //
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+
+// ------ Fonts ------ //
 $global-font-size: 16px !default;
+$global-font-color: $gray-800;
 
 
-// ==============================
-// Variables
-// ==============================
 
-// ========== Theme Color ========== //
-// Config here to change theme color
-// Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
-$theme-color-config: 'Default';
 
-// Default theme color map
-$theme-color-map: (
-  'Default': #c05b4d #f8f5ec,
-  'Mint Green': #16982B #f5f5f5,
-  'Cobalt Blue': #0047AB #f0f2f5,
-  'Hot Pink': #FF69B4 #f8f5f5,
-  'Dark Violet': #9932CC #f5f4fa
-);
+// ==================================================
+// Code Highlight Variables
+// ==================================================
 
-// Check theme color config.
-// if it does not exist, use default theme color.
-@if not(map-has-key($theme-color-map, $theme-color-config)) {
-  $theme-color-config: 'Default';
-}
-$theme-color-list: map-get($theme-color-map, $theme-color-config);
-
-// Default theme color of the site.
-$theme-color: nth($theme-color-list, 1) !default;
-
-// Deputy theme color of the site.
-$deputy-color: nth($theme-color-list, 2) !default;
-
-// ========== Color ========== //
-$black: #0a0a0a !default;
-$white: #fefefe !default;
-$light-gray: #e6e6e6 !default;
-$gray: #cacaca !default;
-$dark-gray: #8a8a8a !default;
-
-// ========== Code ========== //
-// Color of the code.
-$code-color: #c7254e !default;
-
+// code text color
+$code-text-color: #023e8a;
 // Font size of code.
 $code-font-size: 0.9em !default;
-
-// Font family of the code.
+// font family
 $code-font-family: Consolas, Monaco, Menlo, "DejaVu Sans Mono",
  "Bitstream Vera Sans Mono", "Courier New", monospace !default;
-
-// Color of code highlight, solarized.
-$code-highlight-color: (
-  comment: #93a1a1,
-  keyword: #859900,
-  number: #2aa198,
-  title: #268bd2,
-  attribute: #b58900,
-  symbol: #cb4b16,
-  built_in: #dc322f,
-  formula: #eee8d5
-) !default;
+// code background color
+$code-bg-color: #caf0f8;
 
 // Code type list.
 $code-type-list: (
@@ -110,6 +84,3 @@ $code-type-list: (
   language-toml: "TOML",
   language-diff: "Diff"
 ) !default;
-
-// Color of the code background.
-$code-background: $deputy-color !default;
