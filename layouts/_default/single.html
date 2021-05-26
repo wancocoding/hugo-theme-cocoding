@@ -1,40 +1,37 @@
 {{ define "main" }}
-<section id="main">
-  <h1 id="title">{{ .Title }}</h1>
-  <div>
-        <article id="content">
-           {{ .Content }}
-        </article>
-  </div>
-</section>
-<aside id="meta">
-    <div>
-    <section>
-      <h4 id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </h4>
-      <h5 id="wordcount"> {{ .WordCount }} Words </h5>
-    </section>
-    {{ with .Params.topics }}
-    <ul id="topics">
-      {{ range . }}
-        <li><a href="{{ "topics" | absURL}}{{ . | urlize }}">{{ . }}</a> </li>
-      {{ end }}
-    </ul>
-    {{ end }}
-    {{ with .Params.tags }}
-    <ul id="tags">
-      {{ range . }}
-        <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
-      {{ end }}
-    </ul>
-    {{ end }}
+    <div class="w-full bg-white">
+        <main class="container mx-auto flex flex-col justify-start items-center py-4">
+            <article class="w-full md:w-5/6 max-w-screen-lg">
+                <header class="px-2">
+                    <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900">{{ .Title }}</h2>
+                </header>
+                <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 px-2 py-2">
+                    <span class="block px-2 truncate w-24">{{ .Date.Format "2006-01-01" }}</span>
+                    <div class="">
+                        {{ with .Params.tags }}
+                        {{ range . }}
+                        <a href="{{ "tags" | absURL }}/{{ . | urlize }}" class="block px-2 truncate">{{ . }}</a>
+                        {{ end }}
+                        {{- end -}}
+                    </div>
+                    <span class="block px-2 truncate">{{ T "wordCount" .WordCount }}</span>
+                    <span class="block px-2 truncate">{{ T "readingTime" .ReadingTime }}</span>
+                </div>
+                <div class="py-2 px-2 text-base text-gray-600">
+                    <div class="px-2 py-3 article-content markdown line-numbers">
+                        {{ .Content }}
+                    </div>
+                </div>
+            </article>
+
+            <div>
+                {{ with .PrevInSection }}
+                <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
+                {{- end }}
+                {{ with .NextInSection }}
+                <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
+                {{- end }}
+            </div>
+        </main>
     </div>
-    <div>
-        {{ with .PrevInSection }}
-          <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
-        {{ end }}
-        {{ with .NextInSection }}
-          <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
-        {{ end }}
-    </div>
-</aside>
 {{ end }}

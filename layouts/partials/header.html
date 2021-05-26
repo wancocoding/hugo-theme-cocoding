@@ -1,24 +1,37 @@
-<!-- Header -->
-<header class="header">
-  <div class="container header-container">
-    <div class="logo-wrapper">
-      <a href="{{ "/" | relLangURL }}" class="logo">
-      {{- if .Site.Params.logoTitle -}}
-        {{ .Site.Params.logoTitle }}
-      {{- else -}}
-        {{ .Site.Title }}
-      {{- end -}}
-      </a>
-    </div>
-    <nav class="header-navbar">
-      <ul class="header-nav-list">
+<div class="w-full">
+    <header class="bg-indigo-900">
+        <div class="w-full h-12 flex flex-row justify-between md:justify-start items-center">
+            <div class="px-2 flex items-center">
+                <img src="/imgs/logo.png" class="flex object-contain h-8 px-2">
+                <!-- <img src="/imgs/logo-mobile.png" class="flex md:hidden object-contain h-6"> -->
+            </div>
+            <div class="hidden md:flex justify-start">
+                {{ range .Site.Menus.main -}}
+                <a class="block px-2 py-2 rounded text-gray-50 font-medium hover:bg-indigo-500" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+                {{- end }}
+            </div>
+            <div class="md:hidden px-2">
+                <button id="menu-btn" class="block text-2xl font-medium text-gray-200 focus:text-white hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                        <path fill="evenodd" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314
+                            c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743
+                            s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314
+                            c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div id="mobile-menu" class="hidden bg-white fixed max-h-full top-0 bottom-0 w-72 right-0 z-50">
+        <div class="flex justify-end items-center px-2 h-12 bg-gray-100 border-b border-gray-200">
+            <button id="close-menu-btn" class="block text-gray-900">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path fill="evenodd" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+                </svg>
+            </button>
+        </div>
         {{ range .Site.Menus.main -}}
-        <li class="header-nav-item">
-          <a class="header-nav-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
-        </li>
+        <a class="font-light md:font-normal block mx-2 px-2 py-4 hover:bg-indigo-500 border-b border-gray-200" href="{{ .URL | safeURL }}">{{ .Name }}</a>
         {{- end }}
-      </ul>
-    </nav>
-    <div class="nav-search-bar"></div>
-  </div>
-</header>
+    </div>
+</div>

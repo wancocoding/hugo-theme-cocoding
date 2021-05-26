@@ -1,34 +1,51 @@
 {{ define "main" }}
-<main aria-role="main">
-  <header class="homepage-header">
-    <h1>{{.Title}}</h1>
-    {{ with .Params.subtitle }}
-    <span class="subtitle">{{.}}</span>
-    {{ end }}
-  </header>
-  <div class="homepage-content">
-    <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
-    {{.Content}}
-  </div>
-  <div>
-    {{- $paginator := .Paginate (where (where .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true) }} 
-    {{- range $paginator.Pages -}}
-    <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
-    {{ end -}}
-  </div>
-  <!-- pagination -->
-  <nav class="pagination">
-    {{ with $paginator.Prev -}}
-    <a class="prev" href="{{ .URL }}">
-      <i class="iconfont icon-left"></i>
-      <span class="prev-text">{{ T "prevPage" }}</span>
-    </a>
-    {{- end }} {{ with $paginator.Next -}}
-    <a class="next" href="{{ .URL }}">
-      <span class="next-text">{{ T "nextPage" }}</span>
-      <i class="iconfont icon-right"></i>
-    </a>
-    {{- end }}
-  </nav>
-</main>
+<div class="w-full bg-white">
+    <main class="container mx-auto flex flex-col justify-start items-center py-4">
+        {{- $paginator := .Paginate (where (where .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true) }}
+        <div class="w-5/6 max-w-screen-lg">
+            {{- range $paginator.Pages -}}
+            <section>
+                <header class="px-2">
+                    <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900"><a href="{{.Permalink}}">{{.Title}}</a></h2>
+                </header>
+                <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 px-2 py-2">
+                    <span class="block px-2 truncate w-24">{{.Date.Format "2006-01-02"}}</span>
+                    <div class="">
+                        {{ with .Params.categories -}}
+                        {{ range . -}}
+                        <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/" class="block px-2 truncate"> {{ . }} </a>
+                        {{ end -}}
+                        {{- end }}
+                    </div>
+                    <span class="block px-2 truncate">{{ T "wordCount" .WordCount }}</span>
+                    <span class="block px-2 truncate">{{ T "readingTime" .ReadingTime }}</span>
+                </div>
+                <div class="py-2 px-2 text-base text-gray-600">
+                    <div class="px-2 mb-1 post-summary">
+                        {{ .Summary | plainify }}
+                    </div>
+                    <a href="{{.Permalink}}"><em class="px-2 not-italic text-sm text-gray-400 hover:text-indigo-900">Read More</em></a>
+                </div>
+                <div class="mx-4 my-2 border-b border-gray-200"></div>
+            </section>
+            {{ end -}}
+            <div class="flex px-4 w-full justify-between max-w-screen-lg">
+                <div>
+                    {{ with $paginator.Prev -}}
+                    <a class="block" href="{{ .URL }}">
+                        <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{ T "prevPage" }}</span>
+                    </a>
+                    {{- end }}
+                </div>
+                <div>
+                    {{ with $paginator.Next -}}
+                    <a class="block" href="{{ .URL }}">
+                        <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{ T "nextPage" }}</span>
+                    </a>
+                    {{ end -}}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
 {{ end }}

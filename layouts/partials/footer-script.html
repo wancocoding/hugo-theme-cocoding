@@ -1,0 +1,29 @@
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+{{ $app := resources.Get "js/app.js" -}}
+{{ $slice := slice $app -}}
+
+<!-- if other js need to append -->
+{{ if .Site.Params.options.darkMode -}}
+  {{ $darkMode := resources.Get "js/darkmode.js" -}}
+  {{ $darkMode := $darkMode | js.Build -}}
+  {{ $slice = $slice | append $darkMode -}}
+{{ end -}}
+
+{{ $js := $slice | resources.Concat "main.js" -}}
+
+{{ if eq (hugo.Environment) "development" -}}
+    <script src="{{ $js.RelPermalink }}" defer></script>
+{{ else -}}
+    {{ $js := $js | minify | fingerprint "sha512" -}}
+    <script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
+{{ end -}}
+
+<!-- prismjs for highlight -->
+    <!-- 
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>Prism.plugins.autoloader.languages_path='https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/';</script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script> 
+    -->
+    <!-- <script src="{{ "js/plugins/highlight/highlight.pack.js?v=20171001" | relURL }}"></script> -->
