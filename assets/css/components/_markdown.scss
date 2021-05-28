@@ -1,0 +1,77 @@
+.article-content {
+  font-size: 1rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+  }
+
+  @each $header, $size in $global-headings {
+    #{$header} {
+      font-size: $size;
+      //   font-family: $global-serif-font-family;
+    }
+  }
+
+  code {
+    font-size: 0.9rem;
+    color: $code-text-color;
+    background-color: $code-bg-color;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  blockquote {
+    margin: 2em 0;
+    padding: 10px 20px;
+    position: relative;
+    color: rgba(#34495e, 0.8);
+    background-color: $content-blockquote-bg-color;
+    border-left: 0.2rem solid rgba($primary, 0.3);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  a {
+    color: $link-color;
+    word-break: break-all;
+
+    &:hover {
+      color: $primary;
+      border-bottom: 1px solid $primary;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-inline-start: 2.5rem;
+  }
+
+  hr {
+    margin: 1rem 0;
+    position: relative;
+    border-top: 2px dashed $primary;
+    border-bottom: none;
+  }
+
+  dl dt::after {
+    content: ":";
+  }
+}

@@ -1,36 +1,61 @@
 {{ define "main" }}
     <div class="w-full bg-white">
         <main class="container mx-auto flex flex-col justify-start items-center py-4">
-            <article class="w-full md:w-5/6 max-w-screen-lg">
-                <header class="px-2">
-                    <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900">{{ .Title }}</h2>
-                </header>
-                <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 px-2 py-2">
-                    <span class="block px-2 truncate w-24">{{ .Date.Format "2006-01-01" }}</span>
-                    <div class="">
+            <div class="w-5/6 max-w-screen-lg">
+                <article>
+                    <header>
+                        <h2 class="inline-block py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900">{{ .Title }}</h2>
+                    </header>
+                    <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 py-2">
+                        <span class="block truncate w-24">{{ .Date.Format "2006-01-01" }}</span>
+                        <div class="">
+                            {{ with .Params.categories }}
+                            {{ range . }}
+                            <a href="{{ "categories" | absURL }}/{{ . | urlize }}" class="common-link">{{ . }}</a>
+                            {{ end }}
+                            {{- end -}}
+                        </div>
+                        <span class="block px-2 truncate">{{ T "wordCount" .WordCount }}</span>
+                        <span class="block px-2 truncate">{{ T "readingTime" .ReadingTime }}</span>
+                    </div>
+                    <div class="py-2 text-base text-gray-600">
+                        <div class="py-3 article-content">
+                            {{ .Content }}
+                        </div>
+                    </div>
+                    <!-- Tags -->
+                    <div class="py-3 border-t border-gray-300 border-dashed">
+                        <span class="">TAG:</span>
                         {{ with .Params.tags }}
                         {{ range . }}
-                        <a href="{{ "tags" | absURL }}/{{ . | urlize }}" class="block px-2 truncate">{{ . }}</a>
+                        <a href="{{ "tags" | absURL }}/{{ . | urlize }}" class="common-link">{{ . }}</a>
                         {{ end }}
                         {{- end -}}
                     </div>
-                    <span class="block px-2 truncate">{{ T "wordCount" .WordCount }}</span>
-                    <span class="block px-2 truncate">{{ T "readingTime" .ReadingTime }}</span>
-                </div>
-                <div class="py-2 px-2 text-base text-gray-600">
-                    <div class="px-2 py-3 article-content markdown line-numbers">
-                        {{ .Content }}
+                    <!-- copyright -->
+                    <div class="py-3">
+                        <span>{{ T "author" }} : </span>
+                        <span>{{ if .Params.author }}{{ .Params.author | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+                    </div>
+                </article>
+                <div class="flex w-full justify-between max-w-screen-lg mt-2 py-3 border-t border-gray-300 border-dashed">
+                    <div>
+                        {{ with .PrevInSection -}}
+                        <a class="block" href="{{ .URL }}">
+                            <i class="iconfont icon-fanhui1 font-extrabold"></i>
+                            <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{.Title}}</span>
+                        </a>
+                        {{- end }}
+                    </div>
+                    <div>
+                        {{ with .NextInSection -}}
+                        <a class="next-link-icon block" href="{{ .URL }}">
+                            <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{.Title}}</span>
+                            <i class="iconfont icon-fanhui2 font-extrabold"></i>
+                        </a>
+                        {{ end -}}
                     </div>
                 </div>
-            </article>
-
-            <div>
-                {{ with .PrevInSection }}
-                <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
-                {{- end }}
-                {{ with .NextInSection }}
-                <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
-                {{- end }}
             </div>
         </main>
     </div>

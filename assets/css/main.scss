@@ -1,9 +1,12 @@
-@import "_base/variables";
-@import "_base/code";
+@import "vendor/utils";
+@import "vendor/animation";
 
-@import "_common/utils";
-@import "_common/animation";
+@import "common/variables";
+@import "common/global";
 
-@import "_style";
+@import "components/code";
+@import "components/markdown";
 
-@import "_partial/header";
+@import "partial/header";
+
+@import "pages/index"

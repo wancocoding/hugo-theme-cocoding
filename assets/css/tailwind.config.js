@@ -4,4 +4,9 @@ module.exports = {
   },
   variants: {},
   plugins: [],
+  corePlugins: {
+    // ...
+    // listStyleType: false,
+    // preflight: false,
+  },
 };

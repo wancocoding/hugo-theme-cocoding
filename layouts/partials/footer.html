@@ -1,7 +1,7 @@
-<footer>
-    <div class="w-full flex justify-center items-center">
+<footer class="h-48 flex justify-center items-end">
+    <div class="w-full flex justify-center items-center py-4">
         <div>
-            <span class="block">© 2006 - 2021 cocoding.cc</span>
+            <span class="block">© 2006 - 2021 {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
         </div>
     </div>
 </footer>
