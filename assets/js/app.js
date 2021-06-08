@@ -26,7 +26,7 @@ const chroma = function () {
 
 chroma();
 
-// toc
+// ------------------ toc ------------------------
 const toc = {};
 
 const tocScroll = function () {
@@ -48,11 +48,11 @@ const getAnchors = function () {
 
 const tocItem = function (anchor) {
   return $('[href="' + anchor + '"]');
-}
+};
 
 const heading = function (anchor) {
   return $("[id=" + anchor.substr(1) + "]");
-}
+};
 
 const currentAnchor = function () {
   var winY = window.pageYOffset;
@@ -76,7 +76,7 @@ const currentAnchor = function () {
 const initFirstHeadingPosition = function () {
   var _anchors = getAnchors();
   toc.firstHeadTop = heading(_anchors[0]).position().top;
-}
+};
 
 toc.anchors = null;
 toc.firstHeadTop = 0;
@@ -87,7 +87,22 @@ toc.init = function () {
   tocScroll();
 };
 
+// ---------------- heading anchor -----------------
+
+postHeading = {
+  buildAnchor: function () {
+    for (let num = 1; num <= 6; num++) {
+      const headers = document.querySelectorAll(".article-content>h" + num);
+      for (let i = 0; i < headers.length; i++) {
+        const header = headers[i];
+        header.innerHTML = `${header.innerHTML}<a href="#${header.id}" class="anchor">#</a>`;
+      }
+    }
+  },
+};
+
 $(document).ready(function () {
   header.init();
   toc.init();
+  postHeading.buildAnchor();
 });

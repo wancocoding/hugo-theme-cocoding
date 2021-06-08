@@ -9,6 +9,28 @@
   h6 {
     font-weight: 700;
     margin: 2rem 0 1rem;
+
+    // &:hover a.anchor,
+    // a.anchor:focus {
+    //   visibility: visible;
+    //   text-decoration: none;
+    // }
+
+    a.anchor {
+      visibility: hidden;
+      padding-left: 0.5rem;
+      opacity: 0;
+      font-size: 1.125em;
+      vertical-align: middle;
+      text-decoration: none;
+    }
+
+    &:hover a.anchor,
+    a.anchor:focus {
+      visibility: visible;
+      text-decoration: none;
+      opacity: initial;
+    }
   }
 
   @each $header, $size in $global-headings {
