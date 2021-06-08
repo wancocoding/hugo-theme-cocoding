@@ -1,0 +1,6 @@
+{{ if ne .Params.toc false -}}
+  <div class="toc-page-links">
+    <h3>{{ T "toc" }}</h3>
+    {{ .TableOfContents }}
+  </div>
+{{ end -}}

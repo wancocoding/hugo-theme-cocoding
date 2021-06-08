@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<div class="w-full bg-white">
+    <main class="container mx-auto flex flex-col justify-start items-center py-4">
+        <div class="w-5/6 max-w-screen-lg">
+            {{ range (.Paginate (.Pages.GroupByDate "2006") 10).PageGroups  }}
+            <h1>{{ .Key }}</h1>
+                {{ range .Pages }}
+            <div>
+                <span>{{ .Date.Format "2006-01-02"}}</span>
+                <a href="{{ .RelPermalink }}">
+                    <span>{{ .Title }}</span>
+                </a>
+            </div>
+                {{ end }}
+            {{ end }}
+            <div class="flex w-full justify-between max-w-screen-lg border-t border-dashed mt-4 py-2">
+                <div>
+                    {{ with .Paginator.Prev -}}
+                    <a class="block" href="{{ .URL }}">
+                        <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{ T "prevPage" }}</span>
+                    </a>
+                    {{- end }}
+                </div>
+                <div>
+                    {{ with .Paginator.Next -}}
+                    <a class="block" href="{{ .URL }}">
+                        <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{ T "nextPage" }}</span>
+                    </a>
+                    {{ end -}}
+                </div>
+            </div>
+        </div>
+         
+
+    </main>
+</div>
+{{ end }}

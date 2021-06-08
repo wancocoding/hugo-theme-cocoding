@@ -1,0 +1,15 @@
+.post-toc {
+  background-color: $content-blockquote-bg-color;
+
+  .toc-page-links {
+    nav {
+      > ul {
+        margin: 0.75rem 0;
+        ul {
+          list-style: square;
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+}

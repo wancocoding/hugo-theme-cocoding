@@ -1,0 +1,54 @@
+{{ define "main" }}
+<div class="w-full bg-white">
+    <main class="container mx-auto flex flex-col justify-start items-center py-4">
+        <div class="px-2 py-3">
+            <h1 class="text-3xl font-bold">{{ .Title }}</h1>
+        </div>
+        {{/*- $paginator := .Paginate (where (where .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true) */}}
+        <div class="w-5/6 max-w-screen-lg">
+            {{- range .Paginator.Pages -}}
+            <section>
+                <header class="px-2">
+                    <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900"><a href="{{.Permalink}}">{{.Title}}</a></h2>
+                </header>
+                <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 px-2 py-2">
+                    <span class="block px-2 truncate w-24">{{.Date.Format "2006-01-02"}}</span>
+                    <div class="">
+                        {{ with .Params.categories -}}
+                            {{ range . -}}
+                        <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/" class="block px-2 truncate"> {{ . }} </a>
+                            {{ end -}}
+                        {{- end }}
+                    </div>
+                    <span class="block px-2 truncate">{{ T "wordCount" .WordCount }}</span>
+                    <span class="block px-2 truncate">{{ T "readingTime" .ReadingTime }}</span>
+                </div>
+                <div class="py-2 px-2 text-base text-gray-600">
+                    <div class="px-2 mb-1 post-summary">
+                        {{ .Summary | plainify }}
+                    </div>
+                    <a href="{{.Permalink}}"><em class="px-2 not-italic text-sm text-gray-400 hover:text-indigo-900">Read More</em></a>
+                </div>
+                <div class="mx-4 my-2 border-b border-gray-200"></div>
+            </section>
+            {{ end -}}
+            <div class="flex px-4 w-full justify-between max-w-screen-lg">
+                <div>
+                    {{ with .Paginator.Prev -}}
+                    <a class="block" href="{{ .URL }}">
+                        <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{ T "prevPage" }}</span>
+                    </a>
+                    {{- end }}
+                </div>
+                <div>
+                    {{ with .Paginator.Next -}}
+                    <a class="block" href="{{ .URL }}">
+                        <span class="text-lg font-semibold text-gray-600 hover:text-indigo-900">{{ T "nextPage" }}</span>
+                    </a>
+                    {{ end -}}
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+{{ end }}

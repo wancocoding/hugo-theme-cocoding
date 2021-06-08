@@ -8,5 +8,26 @@
 @import "components/markdown";
 
 @import "partial/header";
+@import "partial/toc";
 
-@import "pages/index"
+@import "pages/index";
+
+
+article .outside {
+    font-size: medium;
+    background-color: blue;
+
+    .dark-bg {
+        background-color: black;
+        @at-root (without: article) {
+            font-size: small;
+            border: 0.2rem;
+        }
+        @at-root (with: rule) {
+            font-size: x-small;
+            font-weight: 400;
+        }
+    }
+
+    
+}
