@@ -1,0 +1,75 @@
+<!-- 
+* 此模板是嵌套的方式
+* 查询当前父节点下所有文章
+* 建立node的list, 包含多个node, node为dict类型: type(1 section, 2 page), order, parent(section的id), title, page(page对象)
+* nodeList按照order排序
+* 循环的时候建立一个dict,已经写过的章节记录下来,重复的章节就不再显示了
+
+
+hiddenSection: true
+sectionInfo:
+    order: 2                        
+    sectionId: "basic"
+    sectionName: "基础"
+    sectionOrder: 1
+    parentSection: 1
+
+node structure
+
+{
+    id: (string,类似slug)
+    parentId: 上级id(string)
+    isPage: 是否是页面(boolean) 如果不是页面,那就只是章节节点,没有具体内容页面(不渲染页面内容) 根据hiddenSection判断
+    order: 当前级别的排序(number)
+    class: 样式(string 可选)  example: class: "subnode folding"
+}
+
+ -->
+
+<!-- param1: parent section id -->
+{{ $parentSectionId := .parentSectionId }}
+<!-- param2: page context -->
+{{ $pageCtx := .pageCtx }}
+<!-- param3: level -->
+{{ $level := .level }}
+
+<!-- next level -->
+{{ $nextLevel := add $level 1 }}
+<!-- level class name -->
+{{ $levelClassName := delimit (slice "menu-" $level) "" }}
+
+<!-- series name -->
+{{ $seriesName := index ($pageCtx.Params.series) 0 }}
+<!-- query all series posts and sections -->
+{{ $seriesPosts := where $pageCtx.Site.RegularPages "Params.series" "intersect" $pageCtx.Params.series }}
+<!-- filter by parent node -->
+{{ $sectionPosts := where ($seriesPosts) ".Params.section.parent" "==" $parentSectionId }}
+<!-- sort posts -->
+{{ $sortedsectionPosts := sort $sectionPosts ".Params.section.order" }}
+
+
+{{ if ne (len $sectionPosts ) 0 }}
+<div class="sidebar-menu-section">
+  <ul>
+    <!-- 从第2个一级标题开始 加上一个上边框 -->
+    {{ $indexOfPost := 0 }}
+    {{ range $sortedsectionPosts }}
+        {{ $indexOfPost = add $indexOfPost 1 }}
+        {{ $topBorderClass := "" }}
+        {{ if and (gt $indexOfPost 1) (eq $level 1) }}
+            {{ $topBorderClass = "border-solid border-t" }}
+        {{ end }}
+    <li>
+        {{ if eq .Params.hiddenSection true }}
+            <span class="{{ $topBorderClass }} {{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span>
+        {{ else }}
+            <a class="menu-link" href="{{.Permalink}}"><span class="{{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span></a>
+        {{ end }}
+      {{ partial "sidebar/series-menu.html"  (dict "parentSectionId" .Params.section.id "pageCtx" $pageCtx "level" $nextLevel) }}
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
+
+<!-- 参数: 上级章节 pageCtx -->

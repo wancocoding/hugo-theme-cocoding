@@ -8,4 +8,13 @@ description: ""
 tags: []
 categories: []
 author: ""
+series: []
+# no content , just a section, so invisible
+hiddenSection: false
+# section structure
+section:
+    id: ""
+    order: 0
+    parent: ""
+    class: ""
 ---
