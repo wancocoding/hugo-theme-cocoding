@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/wancocoding/hugo-theme-cocoding/compare/v1.2.0...v1.3.0) (2021-06-13)
+
+
+### Features
+
+* add anchor for post heading ([e3c11c4](https://github.com/wancocoding/hugo-theme-cocoding/commit/e3c11c4f2b0d0624b19b6874e9db5bdf39a01025)), closes [#13](https://github.com/wancocoding/hugo-theme-cocoding/issues/13) [#14](https://github.com/wancocoding/hugo-theme-cocoding/issues/14) [#15](https://github.com/wancocoding/hugo-theme-cocoding/issues/15) [#16](https://github.com/wancocoding/hugo-theme-cocoding/issues/16)
+* add sidebar for series ([e73910b](https://github.com/wancocoding/hugo-theme-cocoding/commit/e73910b66089987bbc03b173f795ae1cc0a8937f))
+* add style for table in markdown ([f1ea9be](https://github.com/wancocoding/hugo-theme-cocoding/commit/f1ea9be3f5cb40de9cb7f960a941ec95a3ec81ab)), closes [#18](https://github.com/wancocoding/hugo-theme-cocoding/issues/18)
+* add toc auto change toc anchor ([6e3b07b](https://github.com/wancocoding/hugo-theme-cocoding/commit/6e3b07bab69618718a3d892650b9ae7bf2e8b346))
+* add toc for post ([a07635c](https://github.com/wancocoding/hugo-theme-cocoding/commit/a07635c89b1e0e0ba4033edf93040ba11ce22acf))
+
 ## [1.2.0](https://github.com/wancocoding/hugo-theme-cocoding/compare/v1.1.0...v1.2.0) (2021-05-28)
 
 
