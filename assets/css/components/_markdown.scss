@@ -40,6 +40,35 @@
     }
   }
 
+  /* ====== codeblocks ====== */
+  & > table {
+    max-width: 100%;
+    margin: 10px 0;
+    border-spacing: 0;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125);
+
+    tr {
+      height: 2.25rem !important;
+    }
+
+    th,
+    td {
+      padding: 0.4rem 1rem;
+      border: 1px double darken($code-bg-color, 3%);;
+    }
+    thead tr {
+      background-color: $code-bg-color;
+    }
+
+    // tbody tr:nth-child(odd) {
+    //   background-color: #e5e9f2;
+    // }
+
+    tbody tr:hover {
+      background: $code-bg-color;
+    }
+  }
+
   code {
     font-size: 0.9rem;
     color: $code-text-color;
