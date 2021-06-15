@@ -63,7 +63,7 @@ node structure
         {{ if eq .Params.hiddenSection true }}
             <span class="{{ $topBorderClass }} {{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span>
         {{ else }}
-            <a class="menu-link" href="{{.Permalink}}"><span class="{{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span></a>
+            <a class="menu-link" href="{{ .RelPermalink }}"><span class="{{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span></a>
         {{ end }}
       {{ partial "sidebar/series-menu.html"  (dict "parentSectionId" .Params.section.id "pageCtx" $pageCtx "level" $nextLevel) }}
     </li>

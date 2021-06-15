@@ -6,7 +6,7 @@
             {{- range $paginator.Pages -}}
             <section>
                 <header class="px-2">
-                    <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900"><a href="{{.Permalink}}">{{.Title}}</a></h2>
+                    <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900"><a href="{{ .RelPermalink }}">{{.Title}}</a></h2>
                 </header>
                 <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 px-2 py-2">
                     <span class="block px-2 truncate w-24">{{.Date.Format "2006-01-02"}}</span>
@@ -24,7 +24,7 @@
                     <div class="px-2 mb-1 post-summary">
                         {{ .Summary | plainify }}
                     </div>
-                    <a href="{{.Permalink}}"><em class="px-2 not-italic text-sm text-gray-400 hover:text-indigo-900">Read More</em></a>
+                    <a href="{{ .RelPermalink }}"><em class="px-2 not-italic text-sm text-gray-400 hover:text-indigo-900">Read More</em></a>
                 </div>
                 <div class="mx-4 my-2 border-b border-gray-200"></div>
             </section>
