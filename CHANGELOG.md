@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.4](https://gitee.com/coco-next/cocodocs/compare/v1.5.3...v1.5.4) (2021-06-15)
+
+
+### Bug Fixes
+
+* fix html meta viewport for responsive and update style for summary ([920fbec](https://gitee.com/coco-next/cocodocs/commit/920fbec628ccbba1a9682e901aeddf4754cc195f)), closes [#29](https://gitee.com/coco-next/cocodocs/issues/29) [#30](https://gitee.com/coco-next/cocodocs/issues/30)
+
 ### [1.5.3](https://gitee.com/coco-next/cocodocs/compare/v1.5.2...v1.5.3) (2021-06-15)
 
 
