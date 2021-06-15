@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.5](https://gitee.com/coco-next/cocodocs/compare/v1.5.4...v1.5.5) (2021-06-15)
+
+
+### Bug Fixes
+
+* add favicon ([a845b29](https://gitee.com/coco-next/cocodocs/commit/a845b2905859fcdabb24cf5fb118dfd6ffdbfb1a)), closes [#31](https://gitee.com/coco-next/cocodocs/issues/31)
+
 ### [1.5.4](https://gitee.com/coco-next/cocodocs/compare/v1.5.3...v1.5.4) (2021-06-15)
 
 
