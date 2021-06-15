@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://gitee.com/coco-next/cocodocs/compare/v1.4.1...v1.5.0) (2021-06-15)
+
+
+### Features
+
+* add output format for markdown ([da2e61d](https://gitee.com/coco-next/cocodocs/commit/da2e61da6680f829b50abe87c3b381bdd8a24e0a)), closes [#21](https://gitee.com/coco-next/cocodocs/issues/21) [#22](https://gitee.com/coco-next/cocodocs/issues/22) [#24](https://gitee.com/coco-next/cocodocs/issues/24) [#25](https://gitee.com/coco-next/cocodocs/issues/25)
+
 ### [1.4.1](https://gitee.com/coco-next/cocodocs/compare/v1.4.0...v1.4.1) (2021-06-15)
 
 
