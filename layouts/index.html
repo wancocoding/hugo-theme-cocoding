@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="w-full bg-white">
     <main class="container mx-auto flex flex-col justify-start items-center py-4">
-        {{- $paginator := .Paginate (where (where .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true) }}
+        {{- $paginator := .Paginate (where (where .Site.RegularPages "Type" "post") ".Params.hiddenSection" "!=" true) }}
         <div class="w-5/6 max-w-screen-lg">
             {{- range $paginator.Pages -}}
             <section>
