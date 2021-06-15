@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/wancocoding/hugo-theme-cocoding/compare/v1.3.0...v1.4.0) (2021-06-15)
+
+
+### Features
+
+* update section template for archive page ([caddc55](https://github.com/wancocoding/hugo-theme-cocoding/commit/caddc5580183d4299abb44835debca67e984441c)), closes [#4](https://github.com/wancocoding/hugo-theme-cocoding/issues/4) [#5](https://github.com/wancocoding/hugo-theme-cocoding/issues/5) [#17](https://github.com/wancocoding/hugo-theme-cocoding/issues/17) [#19](https://github.com/wancocoding/hugo-theme-cocoding/issues/19)
+
 ## [1.3.0](https://github.com/wancocoding/hugo-theme-cocoding/compare/v1.2.0...v1.3.0) (2021-06-13)
 
 
