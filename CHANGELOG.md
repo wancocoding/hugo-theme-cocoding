@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://gitee.com/coco-next/cocodocs/compare/v1.4.0...v1.4.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* change default section name from posts to post ([cbe220a](https://gitee.com/coco-next/cocodocs/commit/cbe220ae3fb92783fa1785ac3c3a982ef8a5aee8)), closes [#23](https://gitee.com/coco-next/cocodocs/issues/23)
+
 ## [1.4.0](https://github.com/wancocoding/hugo-theme-cocoding/compare/v1.3.0...v1.4.0) (2021-06-15)
 
 
