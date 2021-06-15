@@ -1,6 +1,16 @@
 Cocoding
 ======
 
-This is a hugo theme
+A Simple Hugo Theme
 
 ## installation
+
+
+## Commands For Devlopment
+
+
+**tagging**
+
+```shell
+standard-version
+```
