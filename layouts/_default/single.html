@@ -22,7 +22,7 @@
                                 <div class="">
                                     {{ with .Params.categories }}
                                     {{ range . }}
-                                    <a href="{{ "categories" | absURL }}/{{ . | urlize }}" class="common-link">{{ . }}</a>
+                                    <a href="{{ "categories" | relURL }}/{{ . | urlize }}" class="common-link">{{ . }}</a>
                                     {{ end }}
                                     {{- end -}}
                                 </div>
@@ -39,7 +39,7 @@
                                 <span class="">TAG:</span>
                                 {{ with .Params.tags }}
                                 {{ range . }}
-                                <a href="{{ "tags" | absURL }}/{{ . | urlize }}" class="common-link">{{ . }}</a>
+                                <a href="{{ "tags" | relURL }}/{{ . | urlize }}" class="common-link">{{ . }}</a>
                                 {{ end }}
                                 {{- end -}}
                             </div>
