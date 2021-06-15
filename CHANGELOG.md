@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://gitee.com/coco-next/cocodocs/compare/v1.5.2...v1.5.3) (2021-06-15)
+
+
+### Bug Fixes
+
+* fix empty tag and cate page issue ([9afc90b](https://gitee.com/coco-next/cocodocs/commit/9afc90b15d4ed0f4f71f771fd5c00754611979cb)), closes [#28](https://gitee.com/coco-next/cocodocs/issues/28)
+
 ### [1.5.2](https://gitee.com/coco-next/cocodocs/compare/v1.5.1...v1.5.2) (2021-06-15)
 
 
