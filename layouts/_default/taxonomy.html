@@ -4,14 +4,14 @@
         <div class="px-2 py-3">
             <h1 class="text-3xl font-bold">{{ .Title }}</h1>
         </div>
-        {{/*- $paginator := .Paginate (where (where .Site.RegularPages "Type" "posts") ".Params.hiddenSection" "!=" true) */}}
+        {{/*- $paginator := .Paginate (where (where .Site.RegularPages "Type" "post") ".Params.hiddenSection" "!=" true) */}}
         <div class="w-5/6 max-w-screen-lg">
             {{- range .Paginator.Pages -}}
             <section>
                 <header class="px-2">
                     <h2 class="inline-block px-2 py-1 text-2xl font-semibold text-gray-600 rounded hover:text-indigo-900"><a href="{{ .RelPermalink }}">{{.Title}}</a></h2>
                 </header>
-                <div class="flex justify-start flex-wrap text-gray-500 text-sm h-8 px-2 py-2">
+                <div class="flex justify-start flex-wrap text-gray-500 text-sm px-2 py-2">
                     <span class="block px-2 truncate w-24">{{.Date.Format "2006-01-02"}}</span>
                     <div class="">
                         {{ with .Params.categories -}}
