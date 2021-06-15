@@ -22,42 +22,47 @@
         display: block;
 
         &.menu-1 {
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: $gray-800;
+            color: $gray-900;
             padding: 1.25rem 0 0 0;
             margin: 0.75rem 0 0.25rem 0;
         }
         &.menu-2 {
-            font-size: 1rem;
-            font-weight: 500;
-            color: $gray-800;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: $gray-600;
             padding: 0.125rem 0 0 0;
         }
         &.menu-3 {
             font-size: 0.875rem;
-            font-weight: 400;
-            color: $gray-700;
+            font-weight: 200;
+            color: $gray-600;
+            padding: 0.125rem 0 0 1rem;
         }
         &.menu-4 {
-            font-size: 0.75rem;
-            font-weight: 300;
+            font-size: 0.875rem;
+            font-weight: 200;
             color: $gray-600;
+            padding: 0.125rem 0 0 1.5rem;
         }
         &.menu-5 {
-            font-size: 0.625rem;
+            font-size: 0.75rem;
             font-weight: 200;
             color: $gray-600;
+            padding: 0.125rem 0 0 2rem;
         }
         &.menu-6 {
-            font-size: 0.625rem;
+            font-size: 0.75rem;
             font-weight: 200;
             color: $gray-600;
+            padding: 0.125rem 0 0 2.5rem;
         }
         &.menu-7 {
-            font-size: 0.625rem;
+            font-size: 0.75rem;
             font-weight: 200;
             color: $gray-600;
+            padding: 0.125rem 0 0 3rem;
         }
     }
   }

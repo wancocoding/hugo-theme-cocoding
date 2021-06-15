@@ -1,3 +1,22 @@
+<!-- author & description & keywords  -->
+<meta name="author" content="{{ if .Params.author }}{{ .Params.author | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}" />
+
+{{- if .Description -}}
+  <meta name="description" content="{{ .Description | safeHTML }}" />
+{{- else if .IsPage -}}
+  <meta name="description" content="{{ .Summary | plainify }}" />
+{{- else if .Site.Params.description -}}
+  <meta name="description" content="{{ .Site.Params.description | safeHTML }}" />
+{{- end -}}
+
+{{- if .Keywords -}}
+  {{ $length := len .Keywords | add -1 -}}
+  <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ $element | safeHTML }}{{if ne $index $length }}, {{ end }}{{ end }}" />
+{{- else if .Site.Params.keywords -}}
+  {{ $length := len .Site.Params.keywords | add -1 -}}
+  <meta name="keywords" content="{{ range $index, $element := .Site.Params.keywords }}{{ $element | safeHTML }}{{if ne $index $length }}, {{ end }}{{ end }}" />
+{{- end }}
+
 <!-- Styles -->
 {{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
 {{/* $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" true) */}}
