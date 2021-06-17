@@ -12,7 +12,7 @@
                 {{ range .Pages }}
                 <div>
                     <span class="text-gray-400">{{ .Date.Format "01-02"}}</span>
-                    <a class="text-gray-800 hover:text-indigo-700" href="{{ .RelPermalink }}">
+                    <a class="text-gray-800 hover:text-indigo-700" href="{{ .Permalink }}">
                         <span class="">{{ .Title }}</span>
                     </a>
                 </div>

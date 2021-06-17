@@ -46,6 +46,8 @@ node structure
 {{ $sectionPosts := where ($seriesPosts) ".Params.section.parent" "==" $parentSectionId }}
 <!-- sort posts -->
 {{ $sortedsectionPosts := sort $sectionPosts ".Params.section.order" }}
+<!-- hightlight current post link -->
+{{ $currentPostID := $pageCtx.Params.section.id }}
 
 
 {{ if ne (len $sectionPosts ) 0 }}
@@ -59,11 +61,16 @@ node structure
         {{ if and (gt $indexOfPost 1) (eq $level 1) }}
             {{ $topBorderClass = "border-solid border-t" }}
         {{ end }}
+        <!-- 判断是否是当前的文章 如果是要加上高亮 -->
+        {{ $hlCurrentPostClass := ""}}
+        {{ if eq .Params.section.id $currentPostID }}
+            {{ $hlCurrentPostClass = "post-active" }}
+        {{ end }}
     <li>
         {{ if eq .Params.hiddenSection true }}
-            <span class="{{ $topBorderClass }} {{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span>
+            <span class="{{ $levelClassName }} {{ $topBorderClass }} {{ .Params.seciton.class }} {{ $hlCurrentPostClass }}">{{ .Title }}</span>
         {{ else }}
-            <a class="menu-link" href="{{ .RelPermalink }}"><span class="{{ $levelClassName }} {{ .Params.seciton.class }}">{{ .Title }}</span></a>
+            <a class="menu-link" href="{{ .RelPermalink }}"><span class="{{ $levelClassName }} {{ .Params.seciton.class }} {{ $hlCurrentPostClass }}">{{ .Title }}</span></a>
         {{ end }}
       {{ partial "sidebar/series-menu.html"  (dict "parentSectionId" .Params.section.id "pageCtx" $pageCtx "level" $nextLevel) }}
     </li>

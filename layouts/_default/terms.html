@@ -2,9 +2,9 @@
   {{ $name := .Data.Plural -}}
   {{ $terms := .Data.Terms.Alphabetical -}}
   {{ $length := len $terms -}}
-<div class="w-full bg-white">
-    <main class="container mx-auto flex flex-col justify-start items-center py-4">
-        <div class="px-2 py-3">
+  <div class="w-full bg-white">
+      <main class="container mx-auto flex flex-col justify-start items-center py-4">
+          <div class="px-2 py-3">
             <h1 class="font-semibold text-2xl">{{ $length }}&nbsp;{{ $name }}</h1>
         </div>
         <div class="w-5/6 max-w-screen-lg">
