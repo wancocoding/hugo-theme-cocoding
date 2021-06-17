@@ -13,10 +13,11 @@
       }
 
       span.post-active {
-        color: $gray-200;
-        background-color: $blue-800;
+        color: $primary;
+        font-weight: 600;
+        // background-color: $primary;
         &:hover {
-          color: $gray-200;
+          color: $primary;
         }
       }
     }
