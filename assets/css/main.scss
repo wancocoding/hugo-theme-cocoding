@@ -2,7 +2,7 @@
 @import "vendor/animation";
 
 @import "common/variables";
-@import "common/fonts";
+@import "common/global";
 @import "common/global";
 
 @import "components/code";
@@ -14,22 +14,3 @@
 
 @import "pages/index";
 
-
-article .outside {
-    font-size: medium;
-    background-color: blue;
-
-    .dark-bg {
-        background-color: black;
-        @at-root (without: article) {
-            font-size: small;
-            border: 0.2rem;
-        }
-        @at-root (with: rule) {
-            font-size: x-small;
-            font-weight: 400;
-        }
-    }
-
-    
-}
