@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.7](https://gitee.com/coco-next/cocodocs/compare/v1.5.6...v1.5.7) (2021-06-17)
+
+
+### Bug Fixes
+
+* update styles for toc and sidebar and highlight current post link ([761ccf7](https://gitee.com/coco-next/cocodocs/commit/761ccf76e7e28f87aa4b2705221ea8e0f35ba742)), closes [#22](https://gitee.com/coco-next/cocodocs/issues/22) [#32](https://gitee.com/coco-next/cocodocs/issues/32)
+
 ### [1.5.6](https://gitee.com/coco-next/cocodocs/compare/v1.5.5...v1.5.6) (2021-06-17)
 
 
