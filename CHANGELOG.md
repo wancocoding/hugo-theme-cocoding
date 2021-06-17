@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.8](https://gitee.com/coco-next/cocodocs/compare/v1.5.7...v1.5.8) (2021-06-17)
+
+
+### Bug Fixes
+
+* remove unuse style ([93ee340](https://gitee.com/coco-next/cocodocs/commit/93ee3404915589b152aeb780b0b7f4da4728d0bc))
+
 ### [1.5.7](https://gitee.com/coco-next/cocodocs/compare/v1.5.6...v1.5.7) (2021-06-17)
 
 
