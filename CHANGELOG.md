@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.6](https://gitee.com/coco-next/cocodocs/compare/v1.5.5...v1.5.6) (2021-06-17)
+
+
+### Bug Fixes
+
+* update refpermalink to permalink ([0079c73](https://gitee.com/coco-next/cocodocs/commit/0079c734c896120c8f90cf6d34ea5031a8e19fb9)), closes [#33](https://gitee.com/coco-next/cocodocs/issues/33) [#34](https://gitee.com/coco-next/cocodocs/issues/34) [#35](https://gitee.com/coco-next/cocodocs/issues/35) [#36](https://gitee.com/coco-next/cocodocs/issues/36)
+
 ### [1.5.5](https://gitee.com/coco-next/cocodocs/compare/v1.5.4...v1.5.5) (2021-06-15)
 
 
