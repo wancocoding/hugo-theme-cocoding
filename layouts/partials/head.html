@@ -36,8 +36,8 @@
 
 <!-- Styles -->
 
+{{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
 {{ if eq (hugo.Environment) "development" -}}
-  {{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
   <link rel="stylesheet" href="{{ $stylesTailwind.RelPermalink }}">
   {{ $options := (dict "targetPath" "main.css" "enableSourceMap" true) }}
   {{ $css := resources.Get "css/main.scss" | toCSS $options -}}
