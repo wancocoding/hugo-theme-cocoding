@@ -36,17 +36,22 @@
 
 <!-- Styles -->
 
-{{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+
 {{ if eq (hugo.Environment) "development" -}}
-  <link rel="stylesheet" href="{{ $stylesTailwind.RelPermalink }}">
-  {{ $options := (dict "targetPath" "main.css" "enableSourceMap" true) }}
-  {{ $css := resources.Get "css/main.scss" | toCSS $options -}}
+  {{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS (dict "targetPath" "tw.css" "enableSourceMap" true) | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+  {{ $mainCss := resources.Get "css/main.scss" | toCSS (dict "targetPath" "main.css" "enableSourceMap" true) -}}
+  {{ $cssSlice := slice }}
+  {{ $cssSlice = $cssSlice | append $stylesTailwind }}
+  {{ $cssSlice = $cssSlice | append $mainCss }}
+  {{ $css := $cssSlice | resources.Concat "bundle.css" }}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{ else -}}
-  {{ $stylesTailwind := $stylesTailwind | minify | fingerprint | resources.PostProcess }}
-  <link rel="stylesheet" href="{{ $stylesTailwind.Permalink }}" integrity="{{ $stylesTailwind.Data.Integrity }}">
-  {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed") -}}
-  {{ $css := resources.Get "css/main.scss" | toCSS $options | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
+  {{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS (dict "targetPath" "tw.css" "outputStyle" "compressed") | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+  {{ $mainCss := resources.Get "css/main.scss" | toCSS (dict "targetPath" "main.css" "outputStyle" "compressed") -}}
+  {{ $cssSlice := slice }}
+  {{ $cssSlice = $cssSlice | append $stylesTailwind }}
+  {{ $cssSlice = $cssSlice | append $mainCss }}
+  {{ $css := $cssSlice | resources.Concat "bundle.css" }}
   {{ $secureCSS := $css | minify | resources.Fingerprint "sha512" -}}
   <link rel="stylesheet" href="{{ $secureCSS.RelPermalink }}" integrity="{{ $secureCSS.Data.Integrity }}" crossorigin="anonymous">
 {{ end -}}

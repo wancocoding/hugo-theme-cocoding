@@ -10,7 +10,8 @@
         <div class="w-5/6 max-w-screen-lg">
             <div class="flex flex-wrap justify-start">
                 {{- range $key, $value := $terms -}}
-                <a class="common-link inline-block h-10 leading-10 px-2 relative" href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
+                <a class="common-link inline-block h-10 leading-10 px-2 relative" 
+                   href="{{ $name | relLangURL }}/{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{else}}/{{ end }}">
                     {{ $value.Term }}
                     <span class="inline-block h-4 text-sm leading-4 relative -top-0.5 right-0">{{ len $value.Pages }}</span>
                 </a>

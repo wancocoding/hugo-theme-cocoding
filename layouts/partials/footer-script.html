@@ -11,7 +11,7 @@
   {{ $slice = $slice | append $darkMode -}}
 {{ end -}}
 
-{{ $js := $slice | resources.Concat "main.js" -}}
+{{ $js := $slice | resources.Concat "bundle.js" -}}
 
 {{ if eq (hugo.Environment) "development" -}}
     <script src="{{ $js.RelPermalink }}" defer></script>
