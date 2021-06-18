@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.9](https://gitee.com/coco-next/cocodocs/compare/v1.5.8...v1.5.9) (2021-06-18)
+
+
+### Bug Fixes
+
+* add link to logo ([1eab273](https://gitee.com/coco-next/cocodocs/commit/1eab2731268f01383b02dfb3bdd8d5ec8630d1fd)), closes [#39](https://gitee.com/coco-next/cocodocs/issues/39)
+* fix tailwind css link issue in production env ([065b454](https://gitee.com/coco-next/cocodocs/commit/065b45400bf103bbf463633764990ebb9d4124a0)), closes [#40](https://gitee.com/coco-next/cocodocs/issues/40)
+
 ### [1.5.8](https://gitee.com/coco-next/cocodocs/compare/v1.5.7...v1.5.8) (2021-06-17)
 
 
