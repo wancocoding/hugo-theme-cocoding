@@ -2,7 +2,10 @@
     <header class="bg-indigo-900">
         <div class="w-full h-12 flex flex-row justify-between md:justify-start items-center">
             <div class="px-2 flex items-center">
-                <img src="/imgs/logo.png" class="flex object-contain h-8 px-2">
+                {{ $rootUrl := ("/" | absURL) }}
+                <a href="{{ $rootUrl }}">
+                    <img src="/imgs/logo.png" class="flex object-contain h-8 px-2">
+                </a>
                 <!-- <img src="/imgs/logo-mobile.png" class="flex md:hidden object-contain h-6"> -->
             </div>
             <div class="hidden md:flex justify-start">
