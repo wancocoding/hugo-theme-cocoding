@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://gitee.com/coco-next/cocodocs/compare/v1.6.0...v1.6.1) (2021-06-23)
+
+
+### Bug Fixes
+
+* delete debug code ([cfe6e5f](https://gitee.com/coco-next/cocodocs/commit/cfe6e5f6b75ff454f8630cd5a40c147837b6a668))
+
 ## [1.6.0](https://gitee.com/coco-next/cocodocs/compare/v1.5.10...v1.6.0) (2021-06-23)
 
 
