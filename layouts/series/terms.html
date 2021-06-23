@@ -10,7 +10,6 @@
             {{ $series := .Data.Terms.Alphabetical }}
             {{ range $series }}
                 {{ $term := .Term }}
-                {{ printf "%#v" $term }}
                  <!-- 查询专题的起始页 -->
                 {{ $startLink := (delimit (slice "/" (lower $ctx.Title) "/" $term "/") "") | absURL }}
                 {{ $startPage := where (where $ctx.Site.RegularPages "Params.series" "intersect" (slice $term)) "Params.seriesStartPage" true }}
