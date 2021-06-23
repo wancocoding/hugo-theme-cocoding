@@ -100,3 +100,8 @@ categoryCounter:
 
 zeroCategoryCounter:
   other: "No categories"
+
+
+# ====== 专题页 ======
+series:
+  other: "Topics"

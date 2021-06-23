@@ -11,6 +11,7 @@ author: ""
 series: []
 # no content , just a section, so invisible
 hiddenSection: false
+seriesStartPage: false
 # section structure
 section:
     id: ""

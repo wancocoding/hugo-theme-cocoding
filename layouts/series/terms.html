@@ -1,16 +1,54 @@
 {{ define "main" }}
 <!-- 专题页面的列表页 -->
-<div class="w-full container mx-auto flex flex-col justify-start items-start">
-    <h1>所有专题</h1>
-    <div>
-        <h2>{{ .Title }}</h2>
-        {{/* $serise := .Site.taxonomies.series */}}
-        {{ $series := .Data.Terms.Alphabetical }}
-        {{ range $series }}
-            <div>
-                {{ .Term }}
-            </div>
-        {{ end }}
+<div class="w-full container mx-auto">
+    <div class="series-box">
+        <h1 class="flex justify-center text-xl mt-3 my-2">{{ T "series"}}</h1>
+        
+        <div class="w-full flex flex-wrap justify-start">
+            {{/* $serise := .Site.taxonomies.series */}}
+            {{ $ctx := . }}
+            {{ $series := .Data.Terms.Alphabetical }}
+            {{ range $series }}
+                {{ $term := .Term }}
+                {{ printf "%#v" $term }}
+                 <!-- 查询专题的起始页 -->
+                {{ $startLink := (delimit (slice "/" (lower $ctx.Title) "/" $term "/") "") | absURL }}
+                {{ $startPage := where (where $ctx.Site.RegularPages "Params.series" "intersect" (slice $term)) "Params.seriesStartPage" true }}
+                {{ if gt (len $startPage) 0 }}
+                    {{ $startPage = index $startPage 0 }}
+                    {{ $startLink = $startPage.Permalink }}
+                {{ end }}
+                {{ with (index $ctx.Site.Data.series $term) }}
+                    {{ $serieTitle := index (index $ctx.Site.Data.series $term) "title" }}
+                    {{ $serieDesc := index (index $ctx.Site.Data.series $term) "description" }}
+                    {{ $serieCover := index (index $ctx.Site.Data.series $term) "cover" }}
+                   
+                <div class="serie-item w-64 h-48 flex flex-col justify-start bg-gray-200 mx-4 my-4">
+                    <div class="cover w-full h-40 absolute flex justify-center items-center ">
+                        <img src="{{ $serieCover }}" alt="" class="w-full h-40 object-cover">
+                        <h3 class="serie-title"><a href="{{ $startLink }}">{{ $serieTitle }}</a></h3>
+                    </div>
+                    <div class="serie-item-title w-full h-8 ">
+                        <span class="w-full h-full flex justify-center items-center bg-white"><a href="{{ $startLink }}">{{ $serieTitle }}</a></span>
+                    </div>
+                </div>
+                {{ else }}
+                    {{ $serieTitle := $term }}
+                    {{ $serieDesc := "" }}
+                    {{ $serieCover := "/imgs/series-default.png" }}
+                <div class="serie-item w-64 h-48 flex flex-col justify-start bg-gray-200 mx-4 my-4">
+                    <div class="cover w-full h-40 absolute flex justify-center items-center ">
+                        <img src="{{ $serieCover }}" alt="" class="w-full h-40 object-cover">
+                        <h3 class="serie-title"><a href="{{ $startLink }}">{{ $serieTitle }}</a></h3>
+                    </div>
+                    <div class="serie-item-title w-full h-8 ">
+                        <span class="w-full h-full flex justify-center items-center bg-white"><a href="{{ $startLink }}">{{ $serieTitle }}</a></span>
+                    </div>
+                </div>
+                {{ end }}
+            {{ end }}
+            
+        </div>
     </div>
 </div>
 {{ end }}

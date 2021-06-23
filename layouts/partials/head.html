@@ -38,12 +38,13 @@
 
 
 {{ if eq (hugo.Environment) "development" -}}
-  {{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS (dict "targetPath" "tw.css" "enableSourceMap" true) | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+  {{/* $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS (dict "targetPath" "tw.css" "enableSourceMap" true) | postCSS (dict "config" "./assets/css/postcss.config.js") */}}
   {{ $mainCss := resources.Get "css/main.scss" | toCSS (dict "targetPath" "main.css" "enableSourceMap" true) -}}
   {{ $cssSlice := slice }}
-  {{ $cssSlice = $cssSlice | append $stylesTailwind }}
+  {{/* $cssSlice = $cssSlice | append $stylesTailwind */}}
   {{ $cssSlice = $cssSlice | append $mainCss }}
   {{ $css := $cssSlice | resources.Concat "bundle.css" }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.2/dist/tailwind.css">
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{ else -}}
   {{ $stylesTailwind := resources.Get "css/tailwind.scss" | toCSS (dict "targetPath" "tw.css" "outputStyle" "compressed") | postCSS (dict "config" "./assets/css/postcss.config.js") }}
