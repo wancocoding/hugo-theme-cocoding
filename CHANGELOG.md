@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://gitee.com/coco-next/cocodocs/compare/v1.5.10...v1.6.0) (2021-06-23)
+
+
+### Features
+
+* finish series page template ([797d089](https://gitee.com/coco-next/cocodocs/commit/797d089a8f40e770dd72963c67383c49aa05c9ee)), closes [#41](https://gitee.com/coco-next/cocodocs/issues/41) [#44](https://gitee.com/coco-next/cocodocs/issues/44) [#45](https://gitee.com/coco-next/cocodocs/issues/45) [#20](https://gitee.com/coco-next/cocodocs/issues/20)
+
 ### [1.5.10](https://gitee.com/coco-next/cocodocs/compare/v1.5.9...v1.5.10) (2021-06-18)
 
 ### [1.5.9](https://gitee.com/coco-next/cocodocs/compare/v1.5.8...v1.5.9) (2021-06-18)
