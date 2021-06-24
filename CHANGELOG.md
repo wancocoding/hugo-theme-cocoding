@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.2](https://gitee.com/coco-next/cocodocs/compare/v1.6.1...v1.6.2) (2021-06-24)
+
+
+### Bug Fixes
+
+* update page content min height ([c8b7f00](https://gitee.com/coco-next/cocodocs/commit/c8b7f00f6f2e4b2c8ad0046cdb5b99a417c32084)), closes [#46](https://gitee.com/coco-next/cocodocs/issues/46) [#47](https://gitee.com/coco-next/cocodocs/issues/47) [#48](https://gitee.com/coco-next/cocodocs/issues/48)
+
 ### [1.6.1](https://gitee.com/coco-next/cocodocs/compare/v1.6.0...v1.6.1) (2021-06-23)
 
 
