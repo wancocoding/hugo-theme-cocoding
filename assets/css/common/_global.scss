@@ -2,10 +2,37 @@ html {
   font-size: $global-font-size;
 }
 
-body {
-  @apply min-h-screen;
+html, body {
+  height: 100%;
+  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+.main-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .main-header {
+        // display: flex;
+        flex: 0 0 3rem;
+        // flex-grow: 0;
+        // flex-shrink: 0;
+        // flex-basis: 3rem;
+    }
+    .main-content {
+        flex: 1 1 auto;
+    }
+
+    .main-footer {
+        flex: 0 0 6rem;
+    }
+}
+
+
+
+
 
 a.common-link {
   color: $link-color;

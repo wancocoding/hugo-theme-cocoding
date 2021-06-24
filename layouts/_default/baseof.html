@@ -9,10 +9,15 @@
     {{ partial "head.html" . }}
   </head>
   <body>
-    {{- partial "header.html" . -}}
-    <div id="content">
-        {{- block "main" . }}{{- end }}
-    </div>
-    {{- partial "footer.html" . -}} {{ partial "footer-script.html" . }}
+      {{- partial "sidebar/mobile-menu.html" .Site.Menus.main -}}
+      
+      <div id="main-body" class="main-box">
+          <div id="body-mask"></div>
+          {{- partial "header.html" . -}}
+          <div id="content" class="main-content">
+              {{- block "main" . }}{{- end }}
+          </div>
+          {{- partial "footer.html" . -}} {{ partial "footer-script.html" . }}
+      </div>
   </body>
 </html>

@@ -1,7 +1,6 @@
-<footer class="h-48 flex justify-center items-end">
-    <div class="w-full flex justify-center items-center py-4">
-        <div>
-            <span class="block">© 2006 - 2021 {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
-        </div>
-    </div>
+<footer class="main-footer h-24 flex justify-center items-end">
+  <div class="w-full flex flex-col justify-center items-center py-4">
+    <span class="block">Powered by <a class="common-link" href="https://gohugo.io/">Hugo</a></span>
+    <span class="block">© 2006 - 2021 {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</span>
+  </div>
 </footer>

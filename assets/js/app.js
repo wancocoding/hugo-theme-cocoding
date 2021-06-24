@@ -2,11 +2,56 @@
 const header = {};
 
 const initMenuButton = function () {
+  // $("#close-menu-btn").click(function () {
+  //   $("#mobile-menu").toggle();
+  // });
+  // $("#menu-btn").click(function () {
+  //   $("#mobile-menu").toggle();
+  // });
+
+  var hideMobileMenu = () => {
+    $("#mobile-menu").css({ width: "0", right: "-18rem" });
+  };
+
+  var showMobileMenu = () => {
+    $("#mobile-menu").css({ width: "18rem", right: "0" });
+  };
+
+  var maskBody = () => {
+    $("#main-body").addClass("blur-body");
+    $("#body-mask").removeClass("disable-body-mask");
+    $("#body-mask").addClass("body-mask");
+  };
+
+  var unmaskBody = () => {
+    $("#main-body").removeClass("blur-body");
+    $("#body-mask").removeClass("body-mask");
+    $("#body-mask").addClass("disable-body-mask");
+  };
+
   $("#close-menu-btn").click(function () {
-    $("#mobile-menu").toggle();
+    unmaskBody();
+    hideMobileMenu();
+    // $("#main-body *")
+    //   .not("#menu-btn")
+    //   .each(function () {
+    //     $(this).unbind("click");
+    //   });
   });
   $("#menu-btn").click(function () {
-    $("#mobile-menu").toggle();
+    maskBody();
+    showMobileMenu();
+    $("#body-mask").click(function() {
+      hideMobileMenu();
+      unmaskBody();
+    });
+    // $("#main-body *")
+    //   .not("#menu-btn")
+    //   .each(function () {
+    //     $(this).click(function () {
+    //       hideMobileMenu();
+    //     });
+    //   });
   });
 };
 
